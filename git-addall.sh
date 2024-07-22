@@ -1,5 +1,5 @@
 # Add here the programs and folders to keep track of.
-tracked="qtile nvim zathura git-addall.sh README.md"
+tracked="qtile nvim zathura git-addall.sh README.md .gitignore"
 
 for program in $tracked; do
 	git add -A "$program"
