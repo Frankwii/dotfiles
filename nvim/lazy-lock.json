@@ -1,6 +1,0 @@
-{
-  "gruvbox.nvim": { "branch": "main", "commit": "7a1b23e4edf73a39642e77508ee6b9cbb8c60f9e" },
-  "lazy.nvim": { "branch": "main", "commit": "839f9e78e78dc935b1188fb16583365991739c51" },
-  "tokyonight.nvim": { "branch": "main", "commit": "a487cac3113adb1853e3a81060f51d7a391cdea9" },
-  "vimtex": { "branch": "master", "commit": "80c9bc179784c30192d482741a43f176c859daa1" }
-}
