@@ -1,9 +1,6 @@
--- Load lazy
+-- Load lazy and other plugins
 require("config")
-
--- Load 
 
 -- Default colorscheme
 vim.cmd "colorscheme tokyonight-storm"
 
--- Plugins

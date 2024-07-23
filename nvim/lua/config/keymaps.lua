@@ -2,18 +2,35 @@
 local keymap=vim.keymap.set
 local delkeymap=vim.keymap.del
 
+-- Rename autocommand creation. Useful for "conditional" remappings (e.g. only active when editing .tex files)
+local autocmd=vim.api.nvim_create_autocmd
+
 -- Default options for keymap setting
 local options= { noremap = true, silent = true }
+-- · noremap=true specifies that no recursivity is used while defining the keymap and that any previous command assigned to the given keychord should be rewritten
+--
+-- · silent=true specifies that no output string should be returned (e.g. no error messages)
 
--- Map space as <leader>
+-- Map space as <leader>. Useful for "emacsifying" nvim via which-key plugin.
 vim.g.mapleader = " "
 
--- 
 keymap('','<c-j>','gj',options)
 keymap('','<c-k>','gk',options)
 keymap('','<c-h>','g0',options)
 keymap('','<c-l>','g$',options)
--- keymap('','<C-Left>','VimtexView',options)
 
--- vim.keymap.del('','<C-Left>')
+-- keymap('','<X1Mouse>','<cmd>q!<cr>')
 
+-- Read filetype-specific keymaps
+-- local readKeymaps = function(filetype)
+-- 	if filetype == "tex" then
+-- 		require("")
+-- 	else
+-- end
+
+-- Latex remaps: active only when editing a .tex file
+autocmd("FileType",{pattern="tex",callback=function()
+keymap('','<C-LeftMouse>','<LeftMouse><cmd>VimtexView<cr>')
+-- keymap('','<C-q>','<cmd>q!<cr>')
+end
+})
