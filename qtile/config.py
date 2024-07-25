@@ -129,7 +129,13 @@ keys = [
     KeyChord([mod],"w",[
         Key([],"e",lazy.function(command_run,'write-email'),desc="Write email"),
     ]),
-    
+
+    KeyChord([mod],"c",[
+        Key([],"c",lazy.spawn("alacritty -e nnn ~/.config"), desc="Open config folder with nnn"),
+        Key([mod],"c",lazy.spawn("alacritty -e nnn ~/.config"), desc="Open config folder with nnn"),
+        Key([],"v",lazy.spawn("alacritty -e nnn ~/.config/nvim"),desc="Open nvim config folder with nnn"),
+        Key([mod],"v",lazy.spawn("alacritty -e nnn ~/.config/nvim"),desc="Open nvim config folder with nnn"),
+    ]),
     # Write keybinds
     # KeyChord([mod],"w",[
         # Key([mod],"w",lazy.spawn(write-email),desc="Write email frank.william.hammond@gmail.com"),
