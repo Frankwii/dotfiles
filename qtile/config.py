@@ -105,7 +105,7 @@ keys = [
 
     # Shortcuts
     Key([mod],"r",lazy.spawn("dmenu_run"),desc="Run dmenu"),
-    Key([mod],"c",lazy.spawn("code"),desc="Run vscode"),
+    # Key([mod],"c",lazy.spawn("code"),desc="Run vscode"), Currently not using vscode
     Key([mod],"v",lazy.spawn("alacritty -e nvim"),desc="Run neovim"),
 
     # Browser keybinds

@@ -3,6 +3,7 @@ local options = {
   swapfile = false,
   undofile = true,
   writebackup = false,
+  clipboard = "unnamedplus", -- make nvim use the same clipboard as the system (not local)
 
 -- APPEARANCE
   wrap = true,

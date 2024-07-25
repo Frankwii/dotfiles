@@ -9,16 +9,24 @@ return {
     },
     keys = { -- mappings
       -- General document mappings
-      {"<leader>w","<cmd>w<cr>",desc="Save"},
-      {"<leader>Q","<cmd>q!<cr>",desc="Exit"},
-      {"<leader>Z","<cmd>wq<cr>",desc="Save & exit"},
+      {"<leader>w",group="Window"},
+        {"<leader>wh", "<c-w>h", desc = "Move left"},
+        {"<leader>wj", "<c-w>j", desc = "Move down"},
+        {"<leader>wk", "<c-w>k", desc = "Move up"},
+        {"<leader>wl", "<c-w>l", desc = "Move right"},
+        {"<leader>wq", "<c-w>q", desc = "Quit window"},
+        {"<leader>wn", "<c-w>n", desc = "New window"},
+        {"<leader>wc", "<c-w>c", desc = "Close window"},
+
+      {"<leader>s","<cmd>w<cr>",desc="Save"},
+      {"<leader>q","<cmd>q!<cr>",desc="Exit"},
+      {"<leader>z","<cmd>wq<cr>",desc="Save & exit"},
 
       -- File-related mappings
---      {"<leader>f",group="File",
---        {"<leader>fo",desc="Open"},
---        {"<leader>ff",desc="Find"},
---      },
---
+      {"<leader>f",group="File"},
+      {"<leader>fo","",desc="Open"},
+      {"<leader>ff","",desc="Find"},
+
 --      -- LaTeX
 --      {"<leader>l",group="LaTeX",
 --        {"<leader>lc","<cmd>VimtexCompile<cr>", desc="Compile"},
@@ -30,13 +38,25 @@ return {
     },
   },
 
+
   config = function(_,opts)
     local wk=require("which-key")
+    local autocmd=vim.api.nvim_create_autocmd
+
     wk.setup(opts.setup)
-    wk.add(opts.keys)
-    vim.api.nvim_create_autocmd("FileType",{pattern="tex",callback=function()
-      wk.add({"<leader>l","<cmd>VimtexCompile<cr>",desc="Compile document"})
-    end})
+    wk.add(opts.keys) -- General mappings
+    local function setup_tex_mappings()
+      local maps={
+        {"<leader>c","<cmd>VimtexCompile<cr>",desc="Compile"}
+      }
+
+      wk.add(maps)
+    end
+    -- wk.add({autocmd("FileType",{pattern="tex",callback=function()end}),desc="Latex compile"})
+   -- autocmd("FileType",{pattern="tex",callback=function()
+   --   wk.add({"<leader>l","<cmd>VimtexCompile<cr>",desc="Compile document"})
+   -- end})
+    autocmd("FileType",{pattern="tex",callback=setup_tex_mappings})
     end
 }
 

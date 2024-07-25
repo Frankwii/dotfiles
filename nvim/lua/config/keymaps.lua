@@ -14,19 +14,20 @@ local options= { noremap = true, silent = true }
 -- Map space as <leader>. Useful for "emacsifying" nvim via which-key plugin.
 vim.g.mapleader = " "
 
+-- Tag jumping (easier navigation through help files)
+-- keymap('n','<cr>','<c-J>',options)
+-- keymap('n','<del>','<c-o>',options)
+
+-- Comfortable wrapped-line displacement with ctrl:
 keymap('','<c-j>','gj',options)
 keymap('','<c-k>','gk',options)
 keymap('','<c-h>','g0',options)
 keymap('','<c-l>','g$',options)
 
--- keymap('','<X1Mouse>','<cmd>q!<cr>')
 
--- Read filetype-specific keymaps
--- local readKeymaps = function(filetype)
--- 	if filetype == "tex" then
--- 		require("")
--- 	else
--- end
+
+-- Mouse remaps (hardware-specific)
+
 
 -- Latex remaps: active only when editing a .tex file
 autocmd("FileType",{pattern="tex",callback=function()
