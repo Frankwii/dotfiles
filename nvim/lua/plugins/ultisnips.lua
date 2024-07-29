@@ -1,3 +1,6 @@
 return {
-  "sirver/ultisnips"
+  "sirver/ultisnips",
+  config = function()
+    require("config.plugins.ultisnips")
+  end
 }
