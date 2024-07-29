@@ -9,6 +9,7 @@ return {
     },
     keys = { -- mappings
       -- General document mappings
+      -- Nvim windows
       {"<leader>w",group="Window"},
         {"<leader>wh", "<c-w>h", desc = "Move left"},
         {"<leader>wj", "<c-w>j", desc = "Move down"},
@@ -22,10 +23,16 @@ return {
       {"<leader>q","<cmd>q!<cr>",desc="Exit"},
       {"<leader>z","<cmd>wq<cr>",desc="Save & exit"},
 
-      -- File-related mappings
+      -- File
       {"<leader>f",group="File"},
       {"<leader>fo","",desc="Open"},
       {"<leader>ff","",desc="Find"},
+
+      -- Tree
+      {"<leader>t",group="Nvim-tree"},
+      {"<leader>tt","<cmd>NvimTreeToggle<cr>",desc="Toggle"},
+      {"<leader>tc","<cmd>NvimTreeFindFile!<cr>",desc="Current buffer path"},
+      {"<leader>tk","<cmd>NvimTreeCollapse<cr>",desc="Collapse"},
 
 --      -- LaTeX
 --      {"<leader>l",group="LaTeX",
