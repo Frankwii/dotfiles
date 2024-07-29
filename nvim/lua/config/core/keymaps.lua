@@ -32,6 +32,6 @@ keymap('','<c-l>','g$',options)
 -- Latex remaps: active only when editing a .tex file
 autocmd("FileType",{pattern="tex",callback=function()
 keymap('','<C-LeftMouse>','<LeftMouse><cmd>VimtexView<cr>')
--- keymap('','<C-q>','<cmd>q!<cr>')
+require("which-key").add({"<leader>c","<cmd>VimtexCompile<cr>",desc="Compile"})
 end
 })
