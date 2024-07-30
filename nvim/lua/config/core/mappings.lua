@@ -24,9 +24,8 @@ keymap('','<c-k>','gk',options)
 keymap('','<c-h>','g0',options)
 keymap('','<c-l>','g$',options)
 
+keymap('','f','<cmd>Telescope find_files<cr>',options)
 
-
--- Mouse remaps (hardware-specific)
 
 
 -- Latex remaps: active only when editing a .tex file

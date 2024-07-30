@@ -23,6 +23,9 @@ function M.treemappings(bufnr)
   keymap('n', '.', tree_api.tree.toggle_hidden_filter, opts('Toggle dotfiles'))
   keymap('n', 'n', tree_api.fs.create, opts('Create file'))
   keymap('n', 'r', tree_api.fs.rename_node, opts('Rename file or folder'))
+  keymap('n', 'sv', tree_api.node.open.vertical, opts('Split vertical'))
+  keymap('n', 'sh', tree_api.node.open.horizontal, opts('Split horizontal'))
+  keymap('n', 'st', tree_api.node.open.tab, opts('Split newtab'))
 
   -- Marks-related
   keymap('n', 'm', function()

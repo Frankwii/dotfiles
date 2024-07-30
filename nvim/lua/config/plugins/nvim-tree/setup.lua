@@ -4,7 +4,7 @@ local keymap = vim.keymap.set
 -- Function assigning maps
 
 require("nvim-tree").setup{
-  on_attach = require("config.plugins.nvim-tree.tree-keymaps").treemappings,
+  on_attach = require("config.plugins.nvim-tree.tree-mappings").treemappings,
   hijack_cursor = true, -- no cursor right/left movement
   disable_netrw = true, -- conflicts with default nvim option
   modified = {
@@ -15,7 +15,7 @@ require("nvim-tree").setup{
   },
   view = {
     signcolumn = "yes", -- column with icons and bars
-    side = "right",
+    side = "left",
   },
   renderer = {
     highlight_opened_files = "name",
