@@ -2,9 +2,8 @@ local actions = require("telescope.actions")
 
 local M = {}
 
-function M.maps()
-
-  return {
+M.maps=
+  {
     n = {
       ["q"] = actions.close,
       --- Results movement
@@ -28,11 +27,9 @@ function M.maps()
       ["<CR>"] = {"<esc>", type="command"},
 
       -- Preview
-      ["<C-j>"] = actions.preview_scrolling_down,
+      ["<C-j>"] = actions.preview_scrolling_down, 
       ["<C-k>"] = actions.preview_scrolling_up,
     },
   }
-
-end
 
 return M

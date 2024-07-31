@@ -24,13 +24,12 @@ keymap('','<c-k>','gk',options)
 keymap('','<c-h>','g0',options)
 keymap('','<c-l>','g$',options)
 
-keymap('','f','<cmd>Telescope find_files<cr>',options)
 
 
 
 -- Latex remaps: active only when editing a .tex file
 autocmd("FileType",{pattern="tex",callback=function()
 keymap('','<C-LeftMouse>','<LeftMouse><cmd>VimtexView<cr>')
-require("which-key").add({"<leader>c","<cmd>VimtexCompile<cr>",desc="Compile"})
+-- require("which-key").add({{"<leader>c","<cmd>VimtexCompile<cr>",desc="Compile"}})
 end
 })

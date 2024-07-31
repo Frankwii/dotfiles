@@ -1,10 +1,7 @@
-local opts = { -- config
-  setup = {
-    triggers = {
-      { "<leader>", mode = { "n", "v" } },
-    },
-  },
-  keys = { -- mappings
+local M={}
+
+M.general =
+{ -- mappings
     -- General document mappings
     -- Nvim windows
     {"<leader>w",group="Window"},
@@ -20,14 +17,12 @@ local opts = { -- config
     {"<leader>wn", "<c-w>n", desc = "New window"},
     {"<leader>wc", "<c-w>c", desc = "Close window"},
 
-    {"<leader>s","<cmd>w<cr>",desc="Save"},
     {"<leader>q","<cmd>q!<cr>",desc="Exit"},
-    {"<leader>z","<cmd>wq<cr>",desc="Save & exit"},
 
     -- File
     {"<leader>f",group="File"},
-    {"<leader>fo","",desc="Open"},
-    {"<leader>ff","",desc="Find"},
+    {"<leader>fs","<cmd>w<cr>",desc="Save"},
+    {"<leader>fz","<cmd>wq<cr>",desc="Save & exit"},
 
     -- Tree
     {"<leader>t",group="Tree"},
@@ -39,21 +34,13 @@ local opts = { -- config
     {"<leader>t+","<cmd>NvimTreeResize +5<cr>",desc="Increase width"},
     {"<leader>t-","<cmd>NvimTreeResize -5<cr>",desc="Decrease width"},
     {"<leader>ts","<cmd>NvimTreeResize 30<cr>",desc="Default size"},
-    -- {"<leader>tk","<cmd>NvimTreeCollapse<cr>",desc="Collapse"},
-
-    --      -- LaTeX
-    --      {"<leader>l",group="LaTeX",
-    --        {"<leader>lc","<cmd>VimtexCompile<cr>", desc="Compile"},
-    --        {"<leader>lt",group="Templates",
-    --          {"<leader>lta",desc="Article"},
-    --          {"<leader>ltb",desc="Book"}
-    --        }
-    --      }
-  },
 }
 
+M.filetypeSpecific={}
 
-local wk=require("which-key")
+M.filetypeSpecific.tex=
+{
+   {"<leader>c","<cmd>VimtexCompile<cr>",desc="Compile"}
+}
 
-wk.setup(opts.setup)
-wk.add(opts.keys) -- General mappings
+return M
