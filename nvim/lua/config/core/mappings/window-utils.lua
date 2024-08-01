@@ -1,4 +1,5 @@
 local getwin = vim.api.nvim_get_current_win
+local setwin = vim.api.nvim_set_current_win
 local getwidth = vim.api.nvim_win_get_width
 local setwidth = vim.api.nvim_win_set_width
 local getheight = vim.api.nvim_win_get_height
@@ -19,49 +20,49 @@ end
 local M = {}
 
 M.isRightMost = function()
-	local curWin = getwin()
-	vim.cmd [[wincmd l]]
-	local rightWin = getwin()
-	if curWin == rightWin then
+	local curwin = getwin()
+	vim.cmd("wincmd l")
+	local rightwin = getwin()
+	if curwin == rightwin then
 		return true
 	else
-		vim.cmd [[wincmd h]]
+		setwin(curwin)
 		return false
 	end
 end
 
 M.isLeftMost = function()
-	local curWin = getwin()
-	vim.cmd [[wincmd h]]
-	local leftWin = getwin()
-	if curWin == leftWin then
+	local curwin = getwin()
+	vim.cmd("wincmd h")
+	local leftwin = getwin()
+	if curwin == leftwin then
 		return true
 	else
-		vim.cmd [[wincmd l]]
+    setwin(curwin)
 		return false
 	end
 end
 
 M.isBottomMost = function()
-	local curWin = getwin()
-	vim.cmd [[wincmd j]]
-	local bottomWin = getwin()
-	if curWin == bottomWin then
+	local curwin = getwin()
+	vim.cmd("wincmd j")
+	local bottomwin = getwin()
+	if curwin == bottomwin then
 		return true
 	else
-		vim.cmd [[wincmd k]]
+    setwin(curwin)
 		return false
 	end
 end
 
 M.isTopMost = function()
-	local curWin = getwin()
-	vim.cmd [[wincmd k]]
-	local topWin = getwin()
-	if curWin == topWin then
+	local curwin = getwin()
+	vim.cmd("wincmd k")
+	local topwin = getwin()
+	if curwin == topwin then
 		return true
 	else
-		vim.cmd [[wincmd j]]
+    setwin(curwin)
 		return false
 	end
 end
