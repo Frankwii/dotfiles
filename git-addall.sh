@@ -15,4 +15,4 @@ done
 
 getopts "m:" message
 
-git commit -m "$message"
+git commit --message "$message"
