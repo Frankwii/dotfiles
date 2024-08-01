@@ -31,11 +31,13 @@ keymap({'n','v'},'<M-J>','<C-w>J',options)
 keymap({'n','v'},'<M-K>','<C-w>K',options)
 keymap({'n','v'},'<M-L>','<C-w>L',options)
 
+-- Intuitive resizing options!
 local wutils = require("config.core.mappings.window-utils")
-keymap({'n','v'},'<M-r>h',wutils.ResizeLeft,options)
-keymap({'n','v'},'<M-r>j',wutils.ResizeDown,options)
-keymap({'n','v'},'<M-r>k',wutils.ResizeUp,options)
-keymap({'n','v'},'<M-r>l',wutils.ResizeRight,options)
+keymap({'n','v'},'<M-C-h>',wutils.ResizeLeft,options)
+keymap({'n','v'},'<M-C-j>',wutils.ResizeDown,options)
+keymap({'n','v'},'<M-C-k>',wutils.ResizeUp,options)
+keymap({'n','v'},'<M-C-l>',wutils.ResizeRight,options)
+keymap({'n','v'},'<M-C-0>','<C-w>=',options)
 
 keymap({'n','v'},'<M-n>','<C-w>n',options)
 keymap({'n','v'},'<M-q>','<C-w>c',options)
@@ -43,11 +45,27 @@ keymap({'n','v'},'<M-s><M-h>','<C-w>s',options)
 keymap({'n','v'},'<M-s><M-v>','<C-w>v',options)
 
 -- Tab-related
-keymap('n', '<M-t>l','<cmd>tabnext<CR>', opts)
-keymap('n', '<M-t>h','<cmd>tabprevious<CR>', opts)
+keymap('n', '<M-0>','<cmd>tabfirst<CR>', opts)
+keymap('n', '<M-9>','<cmd>tablast<CR>', opts)
 keymap('n', '<M-t>n','<cmd>tabnew<CR>', opts)
 keymap('n', '<M-t>c','<cmd>tabclose<CR>', opts)
 
--- Latex remaps: active only when editing a .tex file
-autocmd("FileType",{pattern="tex",callback=
-function() keymap('','<C-LeftMouse>','<LeftMouse><cmd>VimtexView<cr>',options)end})
+-- Filetype-specific remaps (only active when editing specific filetype)
+local function filetypekeymap(filetype,mode,lhs,rhs,opts)
+  --- Args:
+  ---     · {filetype}  (string) Extension of the file
+  ---     · {mode}      (string) Modes for the keymap
+  ---     · {lhs}       (string) lhs of vim.keymap.set
+  ---     · {rhs}       (string) rhs of vim.keymap.set
+  ---     · {opts}      (table)  opts
+  vim.api.nvim_create_autocmd("FileType",{pattern=filetype, 
+  callback = function() vim.keymap.set(mode,lhs,rhs,opts) end})
+end
+
+-- Latex
+filetypekeymap("tex",'','<C-LeftMouse>','<LeftMouse><cmd>VimtexView<cr>',options)
+
+-- Lua
+-- filetypekeymap("lua",'','<C-f>',function()
+--   local filepath = vim.fn.expand('%')
+-- end,options)

@@ -1,9 +1,27 @@
+local getwin = vim.api.nvim_get_current_win
+local getwidth = vim.api.nvim_win_get_width
+local setwidth = vim.api.nvim_win_set_width
+local getheight = vim.api.nvim_win_get_height
+local setheight = vim.api.nvim_win_set_height
+
+local function increaseWidth(window,amount)
+  --- Increase width of {window} by {amount} units. Can also decrease the width if {amount} is a negative number
+  win = getwin()
+  setwidth(win,getwidth(win)+amount)
+end
+
+local function increaseHeight(window,amount)
+  --- Increase height of {window} by {amount} units. Can also decrease the width if {amount} is a negative number
+  win = getwin()
+  setheight(win,getheight(win)+amount)
+end
+
 local M = {}
 
 M.isRightMost = function()
-	local curWin = vim.fn.winnr()
+	local curWin = getwin()
 	vim.cmd [[wincmd l]]
-	local rightWin = vim.fn.winnr()
+	local rightWin = getwin()
 	if curWin == rightWin then
 		return true
 	else
@@ -13,9 +31,9 @@ M.isRightMost = function()
 end
 
 M.isLeftMost = function()
-	local curWin = vim.fn.winnr()
+	local curWin = getwin()
 	vim.cmd [[wincmd h]]
-	local leftWin = vim.fn.winnr()
+	local leftWin = getwin()
 	if curWin == leftWin then
 		return true
 	else
@@ -25,9 +43,9 @@ M.isLeftMost = function()
 end
 
 M.isBottomMost = function()
-	local curWin = vim.fn.winnr()
+	local curWin = getwin()
 	vim.cmd [[wincmd j]]
-	local bottomWin = vim.fn.winnr()
+	local bottomWin = getwin()
 	if curWin == bottomWin then
 		return true
 	else
@@ -37,9 +55,9 @@ M.isBottomMost = function()
 end
 
 M.isTopMost = function()
-	local curWin = vim.fn.winnr()
+	local curWin = getwin()
 	vim.cmd [[wincmd k]]
-	local topWin = vim.fn.winnr()
+	local topWin = getwin()
 	if curWin == topWin then
 		return true
 	else
@@ -51,44 +69,40 @@ end
 M.ResizeLeft = function()
 	if M.isRightMost() then
 		if not M.isLeftMost() then
-			vim.cmd [[wincmd 1 >]]
+			increaseWidth(getwin(),1)
 		end
 	else
-		vim.cmd [[wincmd 1 <]]
+		increaseWidth(getwin(),-1)
 	end
 end
 
 M.ResizeRight = function()
 	if M.isRightMost() then
 		if not M.isLeftMost() then
-			vim.cmd [[wincmd 1 <]]
+			increaseWidth(getwin(),-1)
 		end
 	else
-		vim.cmd [[wincmd 1 >]]
+		increaseWidth(getwin(),1)
 	end
 end
 
 M.ResizeUp = function()
 	if M.isBottomMost() then
 		if not M.isTopMost() then
-			vim.cmd [[wincmd 1 +]]
-		else
-			vim.cmd [[wincmd 1 -]]
+			increaseHeight(getwin(),1)
 		end
 	else
-		vim.cmd [[wincmd 1 -]]
+		increaseHeight(getwin(),-1)
 	end
 end
 
 M.ResizeDown = function()
 	if M.isBottomMost() then
 		if not M.isTopMost() then
-			vim.cmd [[wincmd 1 -]]
-		else
-			vim.cmd [[wincmd 1 +]]
+			increaseHeight(getwin(),-1)
 		end
 	else
-		vim.cmd [[wincmd 1 +]]
+		increaseHeight(getwin(),1)
 	end
 end
 
