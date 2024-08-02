@@ -3,8 +3,6 @@ local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node
 
-local addsnip = ls.add_snippets
-
 local M = {}
 
 local function snip_test_context()
@@ -34,7 +32,7 @@ local function snip_test_nodes()
 end
 
 --- All filetype snippets
-M.all={
+return {
     -- s(snip_test(),snip_test_nodes())
     s(snip_test_context(),snip_test_nodes()),
     s("trigger", {
@@ -44,21 +42,4 @@ M.all={
     }),
     s(autosnip_test_context(),snip_test_nodes()),
 }
-
---- .tex snippets
-M.tex={
-  s({trig="mk",snippetType="autosnippet"}, {
-    t("\\("), i(1),t("\\)"),i(0)
-  }),
-  s({trig="dm",snippetType="autosnippet"}, {
-    t({"\\["}),
-      t({"","\t"}),i(0),
-    t({"",".\\]"})
-  }),
-}
-
--- Add all snippets
-for filetype,snippets in pairs(M) do
-  addsnip(filetype,snippets)
-end
 

@@ -5,4 +5,4 @@ local function opts(description)
   return { desc = description, noremap = true, silent = true}
 end
 
-keymap('','t',tree_api.tree.open,opts("Focus tree"))
+keymap('','<C-t>',tree_api.tree.open,opts("Focus tree"))
