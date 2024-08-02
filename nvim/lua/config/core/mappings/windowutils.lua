@@ -107,4 +107,18 @@ M.ResizeDown = function()
 	end
 end
 
+-- Tab utils
+local function keystrokeToTab(keystroke)
+  local tabpages = vim.api.nvim_list_tabpages()
+  if keystroke > #tabpages then
+    return tabpages[#tabpages]
+  else
+    return tabpages[keystroke]
+  end
+end
+
+M.goToTab = function(keystroke)
+  vim.api.nvim_set_current_tabpage(keystrokeToTab(keystroke)) 
+end
+
 return M

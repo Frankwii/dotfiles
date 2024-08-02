@@ -20,9 +20,10 @@ local options = {
   breakindent = true,             -- tab wrapped lines
   linebreak = true,               -- companion to wrap, don't split words
   backspace = "indent,eol,start", -- allow backspace on indent, end of line or insert mode start position
-
 }
 
+vim.cmd("colorscheme tokyonight")
+
 for key,value in pairs(options) do
-  vim.opt[key] = value
+  vim.o[key] = value
 end

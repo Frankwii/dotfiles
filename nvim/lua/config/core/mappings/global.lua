@@ -32,23 +32,33 @@ keymap({'n','v'},'<M-K>','<C-w>K',options)
 keymap({'n','v'},'<M-L>','<C-w>L',options)
 
 -- Intuitive resizing options!
-local wutils = require("config.core.mappings.window-utils")
+local wutils = require("config.core.mappings.windowutils")
 keymap({'n','v'},'<M-C-h>',wutils.ResizeLeft,options)
 keymap({'n','v'},'<M-C-j>',wutils.ResizeDown,options)
 keymap({'n','v'},'<M-C-k>',wutils.ResizeUp,options)
 keymap({'n','v'},'<M-C-l>',wutils.ResizeRight,options)
 keymap({'n','v'},'<M-C-0>','<C-w>=',options)
 
-keymap({'n','v'},'<M-n>','<C-w>n',options)
+keymap({'n','v'},'<M-w>','<C-w>n',options)
 keymap({'n','v'},'<M-q>','<C-w>c',options)
 keymap({'n','v'},'<M-s><M-h>','<C-w>s',options)
 keymap({'n','v'},'<M-s><M-v>','<C-w>v',options)
 
 -- Tab-related
-keymap('n', '<M-0>','<cmd>tabfirst<CR>', opts)
-keymap('n', '<M-9>','<cmd>tablast<CR>', opts)
-keymap('n', '<M-t>n','<cmd>tabnew<CR>', opts)
-keymap('n', '<M-t>c','<cmd>tabclose<CR>', opts)
+keymap('n', '<M-0>','<cmd>tablast<CR>', options)
+keymap('n', '<M-t>','<cmd>tabnew<CR>', options)
+keymap('n', '<M-c>','<cmd>tabclose<CR>', options)
+keymap('n', '<M-n>','<cmd>tabnext<cr>',options)
+keymap('n', '<M-p>','<cmd>tabprev<cr>',options)
+
+-- Tab utils
+
+for i = 1,9 do
+  keymap('n','<M-'..tostring(i)..'>',function()wutils.goToTab(i)end,options)
+  keymap('n','<M-'..tostring(i)..'>',function()wutils.goToTab(i)end,options)
+end
+
+-- keymap('n', '<M-2>', function()gototab(2)end,opts)
 
 -- Filetype-specific remaps (only active when editing specific filetype)
 local function filetypekeymap(filetype,mode,lhs,rhs,opts)

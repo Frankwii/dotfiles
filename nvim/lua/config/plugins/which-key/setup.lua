@@ -1,19 +1,14 @@
+local wk=require("which-key")
 local mappings = require("config.plugins.which-key.plugin-mappings")
 
-local opts = { -- config
-  setup = {
-    triggers = {
-      { "<leader>", mode = { "n", "v" } },
-    },
-  },
-  keys = mappings.general,
+local setup = {
+  preset = "classic",
+  triggers = {"<leader>", mode = {"n","v"}},
 }
 
 
-local wk=require("which-key")
-
-wk.setup(opts.setup)
-wk.add(opts.keys) -- General mappings (always loaded)
+wk.setup(setup)
+wk.add(mappings.general) -- General mappings (always loaded)
 
 -- Buffer-specific mappings
 local autocmd=vim.api.nvim_create_autocmd
