@@ -1,0 +1,48 @@
+!! General
+
+!*.font=CMU Concrete:size=10:antialias=false
+*font: UbuntuMono Nerd Font:size=16
+
+*.color0: #2E3440
+*.color1: #BF616A
+*.color2: #A3BE8C
+*.color3: #EBCB8B
+*.color4: #81A1C1
+*.color5: #B48EAD
+*.color6: #88C0D0
+*.color7: #D8DEE9
+*.color8: #4C566A
+*.color9: #BF616A
+*.color10: #A3BE8C
+*.color11: #EBCB8B
+*.color12: #81A1C1
+*.color13: #B48EAD
+*.color14: #8FBCBB
+*.color15: #E5E9F0
+
+! Background and foreground colors
+*.foreground: #E5E9F0
+*.background: #2E3440
+
+!! Gerard
+
+! *.background: #161b20
+! *.foreground: #fbf1c7
+! *.color0:     #504945
+! *.color1:     #cc241d
+! *.color2:     #b8bb26
+! *.color3:     #fabd2f
+! *.color4:     #458588
+! *.color5:     #b16286
+! *.color6:     #689d6a
+! *.color7:     #d5c4a1
+! *.color8:     #74778a
+! *.color9:     #cc241d
+! *.color10:    #b8bb26
+! *.color11:    #fabd2f
+! *.color12:    #458588
+! *.color13:    #b16286
+! *.color14:    #689d6a
+! *.color15:    #fbf1c7
+
+!flybinds.font=CMU Concrete:size=10:antialias=false

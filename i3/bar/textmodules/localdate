@@ -1,0 +1,28 @@
+#!/bin/sh
+
+input=$(timedatectl | grep "Local time")
+# Suppose input="Thu 2024-08-22 22:38:06 CEST"
+
+# Remove everyting before the first ": "
+input="${input##*: }"
+# input="Thu 2024-08-22 22:38:06 CEST"
+
+# Same thing as "##" but with the tail of the string
+weekday="${input%% *}"
+# day="Thu"
+
+input="${input#* }"
+# input="2024-08-22 22:38:06 CEST"
+
+input="${input%% *}"
+# input="2024-08-22"
+
+## Now let's format the date as dd-mm-yyyy
+year="${input%%-*}"
+
+month="${input#*-}"
+month="${month%-*}"
+
+day="${input##*-}"
+
+echo "󰃭  $weekday $day/$month/$year"

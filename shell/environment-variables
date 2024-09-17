@@ -1,0 +1,12 @@
+#!/bin/sh
+
+export EDITOR="nvim"
+export BROWSER="firefox"
+export XDG_CONFIG_HOME="$HOME/.config"
+
+export USERTERM="st"
+# Add scripts folder to the PATH:
+[ -d "$HOME/scripts" ] && export PATH=$PATH:$HOME/scripts
+
+# config for zsh-vim-mode
+export KEYTIMEOUT=1

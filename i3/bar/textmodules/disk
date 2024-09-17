@@ -1,0 +1,8 @@
+#!/bin/sh
+
+diskInfo=$(df -H | grep "/$")
+
+diskInfo="${diskInfo#* }"
+diskInfo="${diskInfo%% *}"
+
+echo $diskInfo

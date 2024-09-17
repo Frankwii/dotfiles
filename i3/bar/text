@@ -1,0 +1,41 @@
+# Global properties
+separator=true
+separator_block_width=20
+align=center
+border_top=0
+border_left=0
+border_right=0
+
+# [cpu]
+
+[date]
+command=. "$HOME"/.config/i3/bar/textmodules/localdate
+interval=300
+color=#ffccff
+border=#ffccff
+
+[ram]
+command=. "$HOME"/.config/i3/bar/textmodules/ram
+interval=1
+color=#00ffffee
+border=#00ffffee
+
+# [pacman-updates]
+
+[battery]
+command=. "$HOME"/.config/i3/bar/textmodules/battery
+interval=60
+color=#BF616A
+border=#BF616A
+
+[volume]
+command=. "$HOME"/.config/i3/bar/textmodules/volume
+interval=1
+color=#00ff99
+border=#00ff99
+
+[time]
+command=. "$HOME"/.config/i3/bar/textmodules/localtime
+interval=1
+color=#29B8FF
+border=#29B8FF

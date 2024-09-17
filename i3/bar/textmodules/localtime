@@ -1,0 +1,17 @@
+#!/bin/sh
+
+input=$(timedatectl | grep "Local time")
+# Suppose input="Thu 2024-08-22 22:38:06 CEST"
+
+# Remove everyting before the first ": "
+input="${input##*: }"
+# input="Thu 2024-08-22 22:38:06 CEST"
+
+input="${input#* }"
+# input="2024-08-22 22:38:06 CEST"
+
+input="${input#* }"
+# input="22:38:06 CEST"
+
+# Remove everything after the second space
+echo "󰥔  ${input%% *}"

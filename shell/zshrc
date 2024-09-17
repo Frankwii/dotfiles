@@ -1,0 +1,34 @@
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=5000
+setopt nomatch
+bindkey -v
+
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/frank/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+### Personal config (Frank)
+
+SHELLCONFIG="$HOME/.config/shell"
+
+## Variables and colors
+
+# Load user aliases
+[ -f $SHELLCONFIG/aliases ] && . $SHELLCONFIG/aliases
+
+# Load environment (global) variables ($EDITOR, $TERMINAL...)
+[ -f $SHELLCONFIG/environment-variables ] && . $SHELLCONFIG/environment-variables
+
+# Load tty colors. Available: nord, gruvbox-dark, solarized-dark
+color_name="nord"
+[ -f $SHELLCONFIG/themes/tty/$color_name.sh ] && . $SHELLCONFIG/themes/tty/$color_name.sh
+
+# Load PS1 (shell prompt) config
+[ -f $SHELLCONFIG/PS1 ] && . $SHELLCONFIG/PS1
+
+# Plugins
+[ -f $SHELLCONFIG/plugins/init ] && . $SHELLCONFIG/plugins/init

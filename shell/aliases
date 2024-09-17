@@ -1,0 +1,13 @@
+#!/bin/sh
+
+alias v="nvim"
+alias e="$EDITOR"
+alias p="sudo pacman"
+alias z="zathura"
+
+alias poweroff="systemctl poweroff"
+alias reboot="systemctl reboot"
+alias bios-reboot="systemctl reboot --firmware-setup"
+
+alias mount="sudo mount"
+alias umount="sudo umount"

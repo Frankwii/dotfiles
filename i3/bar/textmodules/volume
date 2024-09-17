@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Get current volume
+volume=$(pamixer --get-volume)
+
+speaker=""
+
+if [ "$volume" = "0" ]; then speaker=""
+elif [ "$volume" -ge "50" ]; then speaker=""
+else speaker=""
+fi
+
+if [ "$(pamixer --get-mute)" = "true" ]; then speaker="󰸈"
+fi
+
+if [ "$volume" -le "9" ]; then
+    echo "${speaker}    ${volume}"
+elif [ "$volume" -le "99" ]; then
+    echo "${speaker}   ${volume}"
+else echo "${speaker}  ${volume}"
+fi

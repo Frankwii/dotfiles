@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Read memory information from /proc/meminfo
+memory_info=$(grep "Mem" /proc/meminfo)
+
+total_memory=$( (echo "$memory_info" | grep "Total") | sed "s/[^0-9]//g") 
+available_memory=$( (echo "$memory_info" | grep "Available") | sed "s/[^0-9]//g")
+# Units are kB. Would like to show GB up to one decimal (32.7 GB), and rounding.
+# 
+# Does this conversion.
+format_number() {
+  number=$(( $1 / 10000 ))
+  integer_GB=$(( number / 100 ))
+  decimals_GB=$(( number - (100 * integer_GB) ))
+
+  if [ $(( decimals_GB % 10 )) -ge 5 ]; then
+    decimals_GB=$(( decimals_GB / 10 + 1 ))
+  else
+    decimals_GB=$(( decimals_GB / 10 ))
+  fi
+
+  echo "$integer_GB.$decimals_GB"
+}
+
+echo "   $(format_number "$((total_memory - available_memory))" )/$(format_number $total_memory) GB"

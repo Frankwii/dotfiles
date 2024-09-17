@@ -1,0 +1,19 @@
+#!/bin/sh
+
+## This script is called on startup by xinitrc to remap keys.
+
+# Decrease key repeat delay to 200ms and increase key repeat rate to 50 per second.
+xset r rate 200 50
+
+# Set ES keyboard
+setxkbmap es
+
+# Map Caps Lock key to Escape
+# It is necessary to do this weird composite function to eliminate the behavior
+# of setting caps lock and then doing escape that you get otherwise
+setxkbmap -option caps:super # Caps Lock -> Left super
+killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape' # Left super -> Escape
+
+# Custom keymaps (change \ and ` behavior)
+xmodmap -e "keycode 49 = backslash ordfeminine grave grave grave"
+xmodmap -e "keycode 34 = dead_grave asciicircum bracketleft bracketleft bracketleft"

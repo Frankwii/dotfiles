@@ -1,0 +1,50 @@
+#!/bin/sh
+
+battery=$(cat /sys/class/power_supply/BAT1/capacity)
+is_charging=$(cat /sys/class/power_supply/ADP1/online)
+
+if [ "$is_charging" = 1 ];then
+  if [ 0 -le "$battery" -a "$battery" -lt 10 ];then
+    echo "󰢜  $battery"
+  elif [ 10 -le "$battery" -a "$battery" -lt 20 ];then
+    echo "󰂆  $battery"
+  elif [ 20 -le "$battery" -a "$battery" -lt 30 ];then
+    echo "󰂇  $battery"
+  elif [ 30 -le "$battery" -a "$battery" -lt 40 ];then
+    echo "󰂈  $battery"
+  elif [ 40 -le "$battery" -a "$battery" -lt 50 ];then
+    echo "󰢝  $battery"
+  elif [ 50 -le "$battery" -a "$battery" -lt 60 ];then
+    echo "󰂉  $battery"
+  elif [ 60 -le "$battery" -a "$battery" -lt 70 ];then
+    echo "󰢞  $battery"
+  elif [ 70 -le "$battery" -a "$battery" -lt 80 ];then
+    echo "󰂊  $battery"
+  elif [ 80 -le "$battery" -a "$battery" -lt 90 ];then
+    echo "󰂋  $battery"
+  elif [ 90 -le "$battery" -a "$battery" -le 100 ];then
+    echo "󰂅  $battery"
+  fi
+else
+  if [ 0 -le "$battery" -a "$battery" -lt 10 ];then
+    echo "󰁺  $battery"
+  elif [ 10 -le "$battery" -a "$battery" -lt 20 ];then
+    echo "󰁻  $battery"
+  elif [ 20 -le "$battery" -a "$battery" -lt 30 ];then
+    echo "󰁼  $battery"
+  elif [ 30 -le "$battery" -a "$battery" -lt 40 ];then
+    echo "󰁽  $battery"
+  elif [ 40 -le "$battery" -a "$battery" -lt 50 ];then
+    echo "󰁾  $battery"
+  elif [ 50 -le "$battery" -a "$battery" -lt 60 ];then
+    echo "󰁿  $battery"
+  elif [ 60 -le "$battery" -a "$battery" -lt 70 ];then
+    echo "󰂀  $battery"
+  elif [ 70 -le "$battery" -a "$battery" -lt 80 ];then
+    echo "󰂁  $battery"
+  elif [ 80 -le "$battery" -a "$battery" -lt 90 ];then
+    echo "󰂂  $battery"
+  elif [ 90 -le "$battery" -a "$battery" -le 100 ];then
+    echo "󰁹  $battery"
+  fi
+fi

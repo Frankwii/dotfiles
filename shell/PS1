@@ -1,0 +1,3 @@
+#!/bin/sh
+
+PS1='%F{blue}%n%f%F{grey}(%m%)%f%F{yellow} | %f%F{green}%/%f %F{yellow}%(!.#.$)%f '

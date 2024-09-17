@@ -1,0 +1,4 @@
+default_border pixel
+hide_edge_borders smart_no_gaps
+
+client.focused $col2 $col2 $col15 $col6

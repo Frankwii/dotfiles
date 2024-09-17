@@ -1,0 +1,18 @@
+bar {
+        status_command i3blocks -c $configdir/bar/text
+        height 20
+        position top
+        colors {
+          separator $col3
+          background $col8
+          statusline $col15
+
+          #                   border  backgr. text
+          focused_workspace   $col3   $col2   #ffffff
+          # active_workspace   #333333 #5f676a #ffffff
+          inactive_workspace $col14 $col4 #bbbbbb
+          urgent_workspace   $col5 $col1 #ffffff
+        }
+
+        tray_output primary
+}
