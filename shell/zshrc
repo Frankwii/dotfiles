@@ -30,5 +30,15 @@ color_name="nord"
 # Load PS1 (shell prompt) config
 [ -f $SHELLCONFIG/PS1 ] && . $SHELLCONFIG/PS1
 
+## Plugins
+
 # Plugins
 [ -f $SHELLCONFIG/plugins/init ] && . $SHELLCONFIG/plugins/init
+
+## Boot
+
+# Load X on bootup
+# [ "$(tty)" = "/dev/tty1" ] && exec startx
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"

@@ -14,8 +14,8 @@ set notification-error-fg "#fbf1c7" #00
 set notification-warning-bg "#d65d0e" #08
 set notification-warning-fg "#1d2021" #00
 
-set highlight-color "#458588" #0A
-set highlight-active-color "#689d6a" #0D
+set highlight-color "rgba(69, 133, 136, 0.65)" #0A
+set highlight-active-color "rgba(104, 157, 106, 0.65)" #0D
 
 set highlight-fg "#cc241d"
 set highlight-transparency 0.5

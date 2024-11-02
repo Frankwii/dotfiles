@@ -11,3 +11,9 @@ alias bios-reboot="systemctl reboot --firmware-setup"
 
 alias mount="sudo mount"
 alias umount="sudo umount"
+
+alias bootdev="/home/frank/go/bin/bootdev"
+alias bdev="/home/frank/go/bin/bootdev"
+
+alias matlab="/home/frank/builds/matlab-bin/bin/matlab"
+alias todo="/usr/bin/kuro"

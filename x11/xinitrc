@@ -36,12 +36,17 @@ fi
 wallpaper=lightning.jpg
 feh --bg-scale "$USERWALLPAPERS/$wallpaper"
 
+# Numlock on
+numlockx
+
 # Window manager. Currently using i3
 session="${1:-i3}"
 # session="${1:-qtile}"
+# session="${1:-Hyprland}"
 case "$session" in
   qtile  ) dbus-run-session qtile start ;;
   i3|i3wm) dbus-run-session i3          ;;
+  # Hyprland)dbus-run-session Hyprland    ;;
   # No known session, try to run it
   *      ) dbus-run-session "$session"  ;;
 esac
