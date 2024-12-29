@@ -6,7 +6,7 @@ local options= { noremap = true, silent = true }
 -- Kill search highlights
 keymap("n", "<esc>", "<cmd>noh<CR>", options)
 
--- Map space as <leader>. Useful for "emacsifying" nvim via which-key plugin.
+-- Map space as <leader>. Useful for "doomemacsifying" nvim via which-key plugin.
 vim.g.mapleader = "<Space>"
 
 -- Comfortable wrapped-line displacement with ctrl-alt:

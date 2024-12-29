@@ -1,7 +1,7 @@
 #!/bin/sh
 
 alias v="nvim"
-alias e="$EDITOR"
+alias e="emacsclient -c -a 'emacs'"
 alias p="sudo pacman"
 alias z="zathura"
 
@@ -17,3 +17,4 @@ alias bdev="/home/frank/go/bin/bootdev"
 
 alias matlab="/home/frank/builds/matlab-bin/bin/matlab"
 alias todo="/usr/bin/kuro"
+

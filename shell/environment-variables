@@ -5,15 +5,20 @@ export BROWSER="firefox"
 export XDG_CONFIG_HOME="$HOME/.config"
 
 export USERTERM="st"
-# Add scripts folder to the PATH:
-if [ -d "$HOME/scripts" ]; then
-  case "$HOME/scripts:" in
-    $PATH) ;;
-    *) if [ "${PATH##*:}"!="$HOME/scripts" ]; then
-         export PATH="$PATH:$HOME/scripts"
-       fi ;;
-  esac
-fi
+# Add folders to the PATH:
+function add_to_PATH() {
+  directory="$1"
+
+  if [ -d "$directory" ]; then
+    case ":$PATH:" in
+      *:"$directory":*) ;;
+      *) export PATH="$PATH:$directory" ;;
+    esac
+  fi
+}
+
+add_to_PATH "$HOME/scripts"
+add_to_PATH "$HOME/.emacs.d/bin/"
 
 # config for zsh-vim-mode
 export KEYTIMEOUT=1

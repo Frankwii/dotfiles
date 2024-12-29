@@ -9,4 +9,3 @@ return {
 -- Autotriggered
 ,{s({trig="autotest", wordTrig=false},t("This was autotriggered"))}
 
-

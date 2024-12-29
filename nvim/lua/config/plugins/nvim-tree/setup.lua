@@ -1,8 +1,3 @@
-local tree_api = require('nvim-tree.api')
-local keymap = vim.keymap.set
-
--- Function assigning maps
-
 require("nvim-tree").setup{
   on_attach = require("config.plugins.nvim-tree.tree-mappings").treemappings,
   hijack_cursor = true, -- no cursor right/left movement

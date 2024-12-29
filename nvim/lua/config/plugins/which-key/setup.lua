@@ -8,7 +8,7 @@ wk.setup({
 
 wk.add(mappings.general) -- General mappings (always loaded)
 
--- Filetype
+-- Filetype-specific
 local function filemap(filetype)
   vim.api.nvim_create_autocmd("FileType",{pattern=filetype,callback=function()
     wk.add(mappings.filetypeSpecific[filetype])
@@ -16,3 +16,4 @@ local function filemap(filetype)
 end
 
 -- filemap("tex")
+filemap("python") -- Python
