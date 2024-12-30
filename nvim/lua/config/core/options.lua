@@ -6,11 +6,13 @@ local options = {
   clipboard = "unnamedplus", -- make nvim use the same clipboard as the system (not local)
 
 -- APPEARANCE
+  cmdheight=0,
   wrap = true,
   number = true,
   relativenumber = true,
   numberwidth = 2,
   cursorline = true,
+  termguicolors=true,
 
 -- INDENT
   tabstop = 2,                    -- insert 2 spaces for a tab
@@ -21,8 +23,6 @@ local options = {
   linebreak = true,               -- companion to wrap, don't split words
   backspace = "indent,eol,start", -- allow backspace on indent, end of line or insert mode start position
 }
-
-vim.cmd("colorscheme tokyonight")
 
 for key,value in pairs(options) do
   vim.o[key] = value

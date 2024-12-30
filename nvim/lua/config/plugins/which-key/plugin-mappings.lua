@@ -5,7 +5,7 @@ local builtin = require("telescope.builtin")
 M.general =
 {
     -- General document mappings
-    {'<leader>T', ':split | terminal<CR>', desc="Open terminal"},
+    {'<leader>T', ':botright split | terminal<CR>', desc="Open terminal"},
 
     -- Nvim windows
     {"<leader>w",group="Window"},
