@@ -78,8 +78,8 @@ M.general =
 
     {"<leader>fB",builtin.builtin,desc="Prebuilt Telescope pickers"},
 
-    {"<leader>m",group="Bookmarks"},
-    {"<leader>mo",expand=require("config.plugins.which-key.bookmarkutils").create_mappings,desc="Bookmarked"},
+    -- {"<leader>m",group="Bookmarks"},
+    -- {"<leader>mo",expand=require("config.plugins.which-key.bookmarkutils").create_mappings,desc="Bookmarked"},
 
     -- Requires LuaSnip plugin
     {"<leader>l",group="LuaSnip"},
@@ -100,13 +100,15 @@ M.general =
 }
 
 M.filetypeSpecific= {
-  ["python"]={"<leader>r", function()
+  ["python"]={
+    {"<leader>r", group="Run"},
+    {"<leader>ra", function()
     vim.cmd('write')
     local filepath = vim.fn.expand('%:p')
     local output = vim.fn.system("python ".. vim.fn.shellescape(filepath))
 
     vim.fn.confirm(output, "&OK", 1, "Info")
-  end, desc = "Run" }
+  end, desc = "Run all" }}
 }
 
 return M
