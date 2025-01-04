@@ -1,6 +1,7 @@
 local M={}
 
 local builtin = require("telescope.builtin")
+local quartorunner = require("quarto.runner")
 -- local themes = require("telescope.themes")
 M.general =
 {
@@ -97,6 +98,14 @@ M.general =
         end
         }
     end,desc="Edit snippets"},
+
+
+    -- Molten
+    {"<leader>e", ":MoltenEvaluateOperator<CR>", desc="Evaluate"},
+    {"<leader>os", ":noautocmd MoltenEnterOutput<CR>", desc="Enter output window"},
+    {"<leader>rr", ":MoltenReevaluateCell<CR>", desc="Re-evaluate cell"},
+    {"<leader>e", ":<C-u>MoltenEvaluateVisual<CR>gv", desc="Molten evaluate visual"},
+    {"<leader>oh", ":MoltenHideOutput<CR>", desc="Hide output"},
 }
 
 M.filetypeSpecific= {
@@ -108,7 +117,22 @@ M.filetypeSpecific= {
     local output = vim.fn.system("python ".. vim.fn.shellescape(filepath))
 
     vim.fn.confirm(output, "&OK", 1, "Info")
-  end, desc = "Run all" }}
+  end, desc = "Run all" }},
+  ["quarto"]={
+    {"<leader>q", group="Quarto"},
+    {"<leader>rc",quartorunner.run_cell, desc = "Run current chunk"},
+    {"<leader>ra",quartorunner.run_cell, desc = "Run above"},
+    {"<leader>rA",quartorunner.run_cell, desc = "Run all"},
+    {"<leader>rl",quartorunner.run_cell, desc = "Run line"},
+  },
+  ["markdown"]={
+    {"<leader>q", group="Quarto"},
+    {"<leader>rc",quartorunner.run_cell, desc = "Run current chunk"},
+    {"<leader>ra",quartorunner.run_cell, desc = "Run above"},
+    {"<leader>rA",quartorunner.run_cell, desc = "Run all"},
+    {"<leader>rl",quartorunner.run_cell, desc = "Run line"},
+  }
+
 }
 
 return M

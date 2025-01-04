@@ -4,7 +4,7 @@ export EDITOR="nvim"
 export BROWSER="firefox"
 export XDG_CONFIG_HOME="$HOME/.config"
 
-export USERTERM="st"
+export USERTERM="kitty"
 # Add folders to the PATH:
 function add_to_PATH() {
   directory="$1"

@@ -17,3 +17,5 @@ end
 
 -- filemap("tex")
 filemap("python") -- Python
+filemap("quarto") 
+filemap("markdown")

@@ -30,7 +30,11 @@ lspconfig.lua_ls.setup {
   },
 }
 -- Python
-lspconfig.pyright.setup {}
+local interpreter_path_getters=require("config.utils.interpreters")
+lspconfig.pyright.setup {
+  settings={python={pythonPath=interpreter_path_getters.python()}}
+}
+-- lspconfig.pyright.setup {}
 
 -- Latex
 lspconfig.texlab.setup {}

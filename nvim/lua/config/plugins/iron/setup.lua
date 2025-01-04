@@ -1,18 +1,20 @@
+local get_python_interpreter = require("config.utils.interpreters").python
+
 require("iron.core").setup({
 
   config={
-    python={
-      command={"jupyter", "console", "--simple-prompt"}
+    repl_definition={
+      python={
+        command=function()return {
+          get_python_interpreter(),"-m","ipython","--simple-prompt"
+        }end
+      },
+      quarto={command=get_python_interpreter},
+      repl_open_cmd = "botright split"
     },
-    repl_open_cmd = "botright split"
+    send_multiline=true
   },
-  keymaps = {
-    send_motion = "<leader>rc", -- Send a block of code
-    visual_send = "<leader>rv", -- Send visually selected code
-    send_file = "<leader>rf",   -- Send the entire file
-    send_line = "<leader>rl",   -- Send the current line
-  },
-  -- highlight = {
-  --   italic = true, -- Highlight sent code with italics
-  -- },
+  keymaps={
+    visual_send="<leader>rv"
+  }
 })

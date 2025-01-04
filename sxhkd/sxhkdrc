@@ -1,0 +1,38 @@
+# Audio
+{XF86AudioRaiseVolume,XF86AudioLowerVolume}
+	pactl set-sink-volume @DEFAULT_SINK@ {+5%,-5%}
+
+XF86AudioMute
+  pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+XF86AudioMicMute
+  pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# Brightness
+{XF86MonBrightnessUp,XF86MonBrightnessDown}
+  brightnessctl set {5%+,5%-}
+
+# Open terminal
+super + Return
+  $USERTERM
+
+super + r
+  dmenu_run
+
+super + space
+  flybinds
+
+super + Print
+  screenshot
+
+Print
+  screenshot "Copy full"
+
+shift + Print
+  screenshot "Copy selection"
+
+control + Print
+  screenshot "Copy full"
+
+control + shift + Print
+  screenshot "Copy selection"

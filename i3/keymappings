@@ -1,6 +1,6 @@
 set $super Mod4
 set $alt Mod1
-set $terminal st
+# set $terminal "$USERTERM"
 # set $terminal alacritty
 
 # Use Mouse+$super to drag floating windows to their wanted position
@@ -59,7 +59,6 @@ bindsym $super+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 # bindsym $super+s layout stacking
-bindsym $super+w layout tabbed
 bindsym $super+e layout toggle split
 
 # toggle tiling / floating
@@ -107,7 +106,6 @@ mode "resize" {
 }
 
 # Use pactl to adjust volume in PulseAudio.
-# TODO: should probably do this system-wide (or via X) instead of in i3
 # set $refresh_i3status killall -SIGUSR1 i3blocks
 # set $refresh_status pkill -RTMIN+10 i3blocks
 
