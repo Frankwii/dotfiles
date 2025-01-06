@@ -18,7 +18,7 @@ function add_to_PATH() {
 }
 
 add_to_PATH "$HOME/scripts"
-add_to_PATH "$HOME/.emacs.d/bin/"
+# add_to_PATH "$HOME/.emacs.d/bin/"
 
 # config for zsh-vim-mode
 export KEYTIMEOUT=1

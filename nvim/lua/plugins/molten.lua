@@ -6,4 +6,11 @@ return {
         init = function()
           require("config.plugins.molten")
         end,
+        keys={
+          {"<C-M-CR>", ":MoltenEvaluateLine<CR>", desc="Evaluate current line with Molten", mode={"n","i"}, noremap=true, silent=true},
+          {"<leader>mo", ":noautocmd MoltenEnterOutput<CR>", desc="Enter output window", mode="n", noremap=true, silent=true},
+          {"<leader>mh", ":MoltenHideOutput<CR>", desc="Hide output", mode="n", noremap=true, silent=true},
+          {"<leader>mi", ":MoltenInit<CR>", desc="Start kernel", mode="n", noremap=true, silent=true},
+          {"<leader>ms", ":MoltenSave<CR>", desc="Save", mode="n", noremap=true, silent=true},
+        }
 }

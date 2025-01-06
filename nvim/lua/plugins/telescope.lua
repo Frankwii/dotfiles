@@ -8,7 +8,5 @@ return {
     --   build = "make",
     -- }
   },
-  config = function()
-    require("config.plugins.telescope")
-  end
+  opts = require("config.plugins.telescope")
 }

@@ -1,12 +1,5 @@
 local M={}
 
-M.incremental_selection={
-  init_selection = {keys="<leader>s", desc="Select incrementally"}, -- set to `false` to disable one of the mappings
-  node_incremental = "n",
-  scope_incremental = "s",
-  node_decremental = "p"
-}
-
 M.textobjects={}
 M.textobjects.select={
   ["af"] = "@function.outer",
@@ -30,7 +23,7 @@ M.textobjects.move = {
     ["mC"] = "@class.outer",
     ["ml"] = "@loop.outer",
     ["mp"] = "@parameter.outer",
-    ["mb"] = "@block.outer",
+    ["mb"] = "@block.inner",
   },
 
   goto_previous_start = {
@@ -39,7 +32,7 @@ M.textobjects.move = {
     ["MC"] = "@class.outer",
     ["Ml"] = "@loop.outer",
     ["Mp"] = "@parameter.outer",
-    ["Mb"] = "@block.outer",
+    ["Mb"] = "@block.inner",
   },
 
   goto_next_end = {
@@ -48,7 +41,7 @@ M.textobjects.move = {
     ["sC"] = "@class.outer",
     ["sl"] = "@loop.outer",
     ["sp"] = "@parameter.outer",
-    ["sb"] = "@block.outer",
+    ["sb"] = "@block.inner",
   },
 
   goto_previous_end = {
@@ -57,7 +50,7 @@ M.textobjects.move = {
     ["SC"] = "@class.outer",
     ["Sl"] = "@loop.outer",
     ["Sp"] = "@parameter.outer",
-    ["Sb"] = "@block.outer",
+    ["Sb"] = "@block.inner",
   },
 }
 

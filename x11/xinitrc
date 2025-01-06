@@ -33,32 +33,13 @@ fi
 [ -f "$USERTHEME/xresources" ] && xrdb -merge "$USERTHEME/xresources"
 
 # Setup wallpaper
-wallpaper=lightning.jpg
+wallpaper=sky.jpg
 feh --bg-scale "$USERWALLPAPERS/$wallpaper"
-
-# Numlock on
-numlockx
 
 # Window manager. Currently using i3
 session="${1:-i3}"
-# session="${1:-qtile}"
-# session="${1:-Hyprland}"
 case "$session" in
-  qtile  ) dbus-run-session qtile start ;;
   i3|i3wm) dbus-run-session i3          ;;
-  # Hyprland)dbus-run-session Hyprland    ;;
   # No known session, try to run it
   *      ) dbus-run-session "$session"  ;;
 esac
-
-# if [ $SESSION_DISPLAY=1 ]: 
-#   echo "Resourced .xinitrc"
-# else
-#   export SESSION_DISPLAY=1
-#   exec "$session"
-# fi
-# twm &
-# xclock -geometry 50x50-1+1 &
-# xterm -geometry 80x50+494+51 &
-# xterm -geometry 80x20+494-0 &
-# exec xterm -geometry 80x66+0+0 -name login

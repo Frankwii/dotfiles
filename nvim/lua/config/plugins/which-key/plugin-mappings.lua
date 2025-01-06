@@ -1,7 +1,7 @@
 local M={}
 
 local builtin = require("telescope.builtin")
-local quartorunner = require("quarto.runner")
+-- local quartorunner = require("quarto.runner")
 -- local themes = require("telescope.themes")
 M.general =
 {
@@ -119,18 +119,18 @@ M.filetypeSpecific= {
     vim.fn.confirm(output, "&OK", 1, "Info")
   end, desc = "Run all" }},
   ["quarto"]={
-    {"<leader>q", group="Quarto"},
-    {"<leader>rc",quartorunner.run_cell, desc = "Run current chunk"},
-    {"<leader>ra",quartorunner.run_cell, desc = "Run above"},
-    {"<leader>rA",quartorunner.run_cell, desc = "Run all"},
-    {"<leader>rl",quartorunner.run_cell, desc = "Run line"},
+    -- {"<leader>q", group="Quarto"},
+    -- {"<leader>rc",quartorunner.run_cell, desc = "Run current chunk"},
+    -- {"<leader>ra",quartorunner.run_cell, desc = "Run above"},
+    -- {"<leader>rA",quartorunner.run_cell, desc = "Run all"},
+    -- {"<leader>rl",quartorunner.run_cell, desc = "Run line"},
   },
   ["markdown"]={
-    {"<leader>q", group="Quarto"},
-    {"<leader>rc",quartorunner.run_cell, desc = "Run current chunk"},
-    {"<leader>ra",quartorunner.run_cell, desc = "Run above"},
-    {"<leader>rA",quartorunner.run_cell, desc = "Run all"},
-    {"<leader>rl",quartorunner.run_cell, desc = "Run line"},
+    -- {"<leader>q", group="Quarto"},
+    -- {"<leader>rc",quartorunner.run_cell, desc = "Run current chunk"},
+    -- {"<leader>ra",quartorunner.run_cell, desc = "Run above"},
+    -- {"<leader>rA",quartorunner.run_cell, desc = "Run all"},
+    -- {"<leader>rl",quartorunner.run_cell, desc = "Run line"},
   }
 
 }

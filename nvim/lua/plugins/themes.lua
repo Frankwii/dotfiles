@@ -1,8 +1,8 @@
 -- All colorschemes and theme-related plugins go here!
 return {
   -- Themes
-  'folke/tokyonight.nvim',
-  'ellisonleao/gruvbox.nvim',
+  {'folke/tokyonight.nvim', lazy=true},
+  {'ellisonleao/gruvbox.nvim', lazy=true},
   {
     "catppuccin/nvim",
     name = "catppuccin",

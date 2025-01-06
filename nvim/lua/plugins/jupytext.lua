@@ -1,4 +1,9 @@
 return {
   "GCBallesteros/jupytext.nvim",
-  config=function() require("config.plugins.jupytext") end
+  dependencies={"jmbuhr/otter.nvim"},
+  opts={
+    style = "markdown",
+    output_extension = "md",
+    force_ft = "markdown",
+  }
 }

@@ -1,1 +1,0 @@
--- require("vscode-config.mappings.global")

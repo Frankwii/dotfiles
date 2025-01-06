@@ -38,7 +38,7 @@ color_name="nord"
 ## Boot
 
 # Load X on bootup
-# [ "$(tty)" = "/dev/tty1" ] && exec startx
+[ "$(tty)" = "/dev/tty1" ] && exec startx
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"

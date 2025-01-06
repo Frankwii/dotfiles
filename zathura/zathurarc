@@ -1,3 +1,5 @@
+set database "sqlite"
+
 set font "Ubuntu 11"
 set default-bg "#000000"
 set default-fg "#fbf1c7"
@@ -17,8 +19,7 @@ set notification-warning-fg "#1d2021" #00
 set highlight-color "rgba(69, 133, 136, 0.65)" #0A
 set highlight-active-color "rgba(104, 157, 106, 0.65)" #0D
 
-set highlight-fg "#cc241d"
-set highlight-transparency 0.5
+set highlight-fg "rgba(204,36,29, 0.5)"
 
 set completion-highlight-bg "#689d6a" #02
 set completion-highlight-fg "#282828" #0C
